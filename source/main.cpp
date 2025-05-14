@@ -15,7 +15,8 @@ int main()
 		system("pause");
 		return 0;
 	}
-
+	
+	Input::SetupButtons();
 	std::thread(UpdateLoop).detach();
 	Render::RenderLoop(RenderPlayers);
 
