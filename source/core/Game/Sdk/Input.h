@@ -51,7 +51,7 @@ public:
 		uint64_t StaticFields = mem.Read<uint64_t>(TypeInfo + 0xB8);
 		if (!StaticFields) return 0;
 
-		return mem.Read<uint64_t>(StaticFields + 0x68);
+		return mem.Read<uint64_t>(StaticFields + 0x150);
 	}
 
 	static void SetupButtons()
