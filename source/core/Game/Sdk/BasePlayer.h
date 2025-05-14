@@ -19,7 +19,7 @@ public:
         auto Dict = Decrypt::BaseNetworkable1(mem.Read<uint64_t>(StaticFields + offsets::PlayerList));
         if (!Dict) return 0;
 
-        return mem.Read<uint64_t>(Dict + 0x18);
+        return mem.Read<uint64_t>(Dict + 0x20);
 	}
 
     bool IsLocalPlayer = false;
