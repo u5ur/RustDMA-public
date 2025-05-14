@@ -4,8 +4,8 @@
 
 namespace Helper
 {
-    void DrawSkeleton(Model::Transforms bones, Unity::Camera camera, ImColor color);
-    std::vector<std::string> GetPlayerInventory(BasePlayer player);
+    void DrawSkeleton(Model::Transforms& bones, Unity::Camera& camera, ImColor color);
+    std::vector<std::string> GetPlayerInventory(BasePlayer& player);
 }
 
 static void RenderPlayers()
