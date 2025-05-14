@@ -1,6 +1,6 @@
 #include "core.h"
 
-void Helper::DrawSkeleton(Model::Transforms bones, Unity::Camera camera, ImColor color) {
+void Helper::DrawSkeleton(Model::Transforms& bones, Unity::Camera& camera, ImColor color) {
 
     Vector2 Eye2d = camera.WorldToScreen(bones.Eye.GetPosition());
     Vector2 Head2d = camera.WorldToScreen(bones.Head.GetPosition());
@@ -38,7 +38,7 @@ void Helper::DrawSkeleton(Model::Transforms bones, Unity::Camera camera, ImColor
     ImGui::GetBackgroundDrawList()->AddLine({ RKnee2d.x, RKnee2d.y }, { RFoot2d.x, RFoot2d.y }, color, 1.0f);
 }
 
-std::vector<std::string> Helper::GetPlayerInventory(BasePlayer player)
+std::vector<std::string> Helper::GetPlayerInventory(BasePlayer& player)
 {
     uint64_t Inventory = Decrypt::PlayerInventory(mem.Read<uint64_t>(player.Address + offsets::PlayerInventory));
     if (!Inventory) return {};
