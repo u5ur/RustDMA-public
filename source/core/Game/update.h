@@ -11,10 +11,10 @@ static std::vector<BasePlayer> GetPlayers(VMMDLL_SCATTER_HANDLE handle)
 	auto PlayerList = BasePlayer::GetPlayerList();
 	if (!PlayerList) return {};
 
-	auto Size = mem.Read<uint32_t>(PlayerList + 0x10);
+	auto Size = mem.Read<uint32_t>(PlayerList + 0x18);
 	if (Size <= 0 || Size >= 10000) return {};
 
-	auto List = mem.Read<uint64_t>(PlayerList + 0x18);
+	auto List = mem.Read<uint64_t>(PlayerList + 0x10);
 	if (!List) return {};
 
 	std::vector<BasePlayer> Players(Size);
@@ -111,6 +111,7 @@ static void UpdateLoop()
 
 		Vector3 TempLocation;
 		Matrix4x4 TempView;
+		Input::UpdateButtons(handle);
 		mem.AddScatterRead(handle, Camera.Address + 0x454, &TempLocation, sizeof(Vector3));
 		mem.AddScatterRead(handle, Camera.Address + 0x30C, &TempView, sizeof(Matrix4x4));
 
